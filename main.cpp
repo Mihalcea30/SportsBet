@@ -8,7 +8,7 @@ private:
     std::string echipa2;
     int scor1, scor2;
 public:
-    Meci(std::string echipa1_, std::string echipa2_, int scor1_, int scor2_) : echipa1{echipa1_}, echipa2{echipa2_},
+    Meci(std::string const echipa1_, std::string const echipa2_, int scor1_, int scor2_) : echipa1{echipa1_}, echipa2{echipa2_},
                                                                                scor1{scor1_}, scor2{scor2_} {
         ///std::cout << "meci";
     }
@@ -36,7 +36,7 @@ class Pariu{
     int cota;
     float suma;
 public:
-    Pariu(std::string bet_, Meci M_, int cota_, float suma_) : bet{bet_}, M{M_}, cota{cota_}, suma{suma_} {
+    Pariu(std::string const bet_, const Meci &M_, int cota_, float suma_) : bet{bet_}, M{M_}, cota{cota_}, suma{suma_} {
         ///std::cout << "pariu";
     }
     Pariu(const Pariu &other) : bet{other.bet}, M{other.M}, cota{other.cota}, suma{other.suma}{
@@ -60,7 +60,7 @@ private:
     std::vector<Pariu> P;
     int nr;
 public:
-    Bilet(std::vector<Pariu> P_, int nr_) : P{P_}, nr{nr_} {
+    Bilet(std::vector<Pariu> const& P_, int nr_) : P{P_}, nr{nr_} {
         ///std::cout << "bilet";
     }
     Bilet(const Bilet &other) : P{other.P}, nr{other.nr}{
