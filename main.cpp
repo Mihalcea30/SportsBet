@@ -16,6 +16,21 @@ public:
     Meci(const Meci &other) : echipa1{other.echipa1}, echipa2{other.echipa2}, scor1{other.scor1}, scor2{other.scor2}{
     ///std::cout << "Constr de copiere\n";
     }
+    Meci& operator=(const Meci& other) {
+        echipa1 = other.echipa1;
+        echipa2 = other.echipa2;
+        scor1 = other.scor1;
+        scor2 = other.scor2;
+        std::cout << "operator= copiere";
+        return *this;
+    }
+    friend std::ostream& operator<<(std::ostream& os, const Meci& m) {
+        os << "Meciul dintre " << m.echipa1 << " și " << m.echipa2 << " are scorul " << m.scor1 << " - " << m.scor2 << "\n";
+        return os;
+    }
+    ~Meci() {
+        ///std::cout << "destructor";
+    }
     std::string getechip1() const { return echipa1; }
     std::string getechip2() const { return echipa2; }
     int getscor1() const { return scor1; }
@@ -42,6 +57,21 @@ public:
     Pariu(const Pariu &other) : bet{other.bet}, M{other.M}, cota{other.cota}, suma{other.suma}{
         ///std::cout << "Constr de copiere\n";
     }
+    Pariu& operator=(const Pariu& other) {
+        bet = other.bet;
+        M = other.M;
+        cota = other.cota;
+        suma = other.suma;
+        std::cout << "operator= copiere";
+        return *this;
+    }
+    friend std::ostream& operator<<(std::ostream& os, const Pariu& p) {
+        os << "Pariu in valoare de " <<  p.cota << " pe meciul dintre " << p.M.getechip1() << " și " << p.M.getechip2() << "care are cota " << p.cota << "\n";
+        return os;
+    }
+    ~Pariu() {
+        ///std::cout << "destructor";
+    }
     std::string getbet() const { return bet; }
     Meci getM() const { return M; }
     float getcota() const { return cota; }
@@ -66,7 +96,21 @@ public:
     Bilet(const Bilet &other) : P{other.P}, nr{other.nr}{
         ///std::cout << "Constr de copiere\n";
     }
-
+    Bilet &operator=(const Bilet &other) {
+        P = other.P;
+        nr = other.nr;
+        std::cout << "operator=";
+        return *this;
+    }
+    ~Bilet() {
+        ///std::cout << "destructor";
+    }
+    friend std::ostream &operator<<(std::ostream &os, const Bilet &b) {
+        os << "Biletul are " << b.nr << " pariuri\n";
+        for (int i = 0; i < b.nr; i++)
+            os << b.P[i];
+        return os;
+    }
     float getcastig() const {
 
         bool ok = true;
@@ -81,7 +125,6 @@ public:
             return castig;
         return 0;
     }
-
     void afisare() const {
         for (int i = 0; i < nr; i++)
             std::cout << P[i].getbet() << " " << P[i].getM().getechip1() << " " << P[i].getM().getechip2() << " "
@@ -96,6 +139,8 @@ int main() {
     std::ifstream fin("tastatura.txt");
     Pariu P{"1", M, 2, 3};
     Bilet B{std::vector<Pariu>{P}, 1};
+    Pariu S{"2", M, 2, 3};
+    S = P;
     B.afisare();
     std::cout << B.getcastig();
     return 0;
