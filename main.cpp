@@ -200,7 +200,7 @@ void AlcatuireBilet()
     std::cout << "Introduceti suma pe care doriti sa o pariati:";
     std::string SumaC;
     std::cin >> SumaC;
-    int Suma;
+    int Suma = 0;
     if(checkNumber(SumaC))
         Suma = std::stoi(SumaC);
     while(Suma < 0 || !checkNumber(SumaC))
