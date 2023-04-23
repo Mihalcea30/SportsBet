@@ -11,9 +11,9 @@ private:
     std::string echipa2;
     int scor1, scor2;
 public:
-    void Citire(std::ifstream &f) {
+    /*void Citire(std::ifstream &f) {
         f >> echipa1 >> echipa2 >> scor1 >> scor2;
-    }
+    }*/
     Meci(std::string echipa1_, std::string echipa2_, int scor1_, int scor2_) : echipa1{std::move(echipa1_)}, echipa2{std::move(echipa2_)},
                                                                                scor1{scor1_}, scor2{scor2_} {
         ///std::cout << "meci";
@@ -82,10 +82,10 @@ public:
     }
     std::string getbet() const { return bet; }
     Meci getM() const { return M; }
-    float getcota1() const { return cota1; }
+    /*float getcota1() const { return cota1; }
     float getcota2() const { return cota2; }
     float getcotaegal() const { return cotaegal; }
-    float getsuma() const { return suma; }
+    float getsuma() const { return suma; }*/
     float getcastig1() const { return suma * cota1; }
     float getcastig2() const { return suma * cota2; }
     float getcastigegal() const { return suma * cotaegal; }
@@ -171,9 +171,9 @@ std::string RandomTeam(int index)
     int n = ListaEchipe.size();
     int x = rand() % n;
     if(index == 0 && x % 2 == 1)
-        x = x--;
+        x = x-1;
     else if(index == 1 && x % 2 == 0)
-        x = x++;
+        x = x+1;
     return ListaEchipe[x];
 }
 int RandomScore()
@@ -189,7 +189,8 @@ float RandomCota()
 }
 bool checkNumber (std::string s)
 {
-    for (int i = 0; i < s.length(); i++)
+    int n = s.length();
+    for (int i = 0; i < n; i++)
         if (isdigit(s[i]) == false)
             return false;
     return true;
