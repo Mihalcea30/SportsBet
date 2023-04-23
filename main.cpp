@@ -171,6 +171,7 @@ std::string RandomTeam(int index)
     int n = ListaEchipe.size();
     int x = rand() % n;
     if(index == 0 && x % 2 == 1)
+
         x = x-1;
     else if(index == 1 && x % 2 == 0)
         x = x+1;
@@ -195,6 +196,16 @@ bool checkNumber (std::string s)
             return false;
     return true;
 }
+int Stoi(std::string s)
+{
+    int n = s.length();
+    int nr = 0;
+    for(int i = 0;i < n;i++)
+    {
+        nr = nr * 10 + (s[i] - '0');
+    }
+    return nr;
+}
 void AlcatuireBilet()
 {
     std::vector<Pariu> P;
@@ -203,13 +214,13 @@ void AlcatuireBilet()
     std::cin >> SumaC;
     int Suma = 0;
     if(checkNumber(SumaC))
-        Suma = std::stoi(SumaC);
+        Suma = Stoi(SumaC);
     while(Suma < 0 || !checkNumber(SumaC))
     {
         std::cout << "Suma trebuie sa fie un numar intreg pozitiv:";
         std::cin >> SumaC;
         if(checkNumber(SumaC))
-            Suma = std::stoi(SumaC);
+            Suma = Stoi(SumaC);
     }
     std::cout << "Meciurile de azi:\n";
     std::vector<Meci> Meciuri;
@@ -228,13 +239,13 @@ void AlcatuireBilet()
     std::cin >> m;
     int n = 0;
     if(checkNumber(m))
-        n = std::stoi(m);
+        n = Stoi(m);
     while(n < 0 || n > 10 || !checkNumber(m))
     {
         std::cout << "Numarul de pariuri trebuie sa fie un numar natural intre 1 si 10:";
         std::cin >> m;
         if(checkNumber(m))
-            n = std::stoi(m);
+            n = Stoi(m);
     }
     int f[100] = {0};
     std::cout << "Introduceti meciurile alese:\n";
@@ -245,20 +256,20 @@ void AlcatuireBilet()
         std::cout << "Indice meci:";
         std::cin >> y;
         if(checkNumber(y))
-            x = std::stoi(y);
+            x = Stoi(y);
         while(x < 1 || x > 10 || !checkNumber(y))
         {
             std::cout << "Indicele meciului trebuie sa fie un numar natural intre 1 si 10:";
             std::cin >> y;
             if(checkNumber(y))
-                x = std::stoi(y);
+                x = Stoi(y);
         }
         while(f[x] == 1)
         {
             std::cout << "Meciul a fost deja introdus:";
             std::cin >> y;
             if(checkNumber(y))
-                x = std::stoi(y);
+                x = Stoi(y);
         }
         f[x] = 1;
         std::string bet;
