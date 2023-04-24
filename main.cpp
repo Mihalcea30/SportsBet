@@ -3,8 +3,41 @@
 #include <utility>
 #include <vector>
 #include <fstream>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
+const int NMAX = 100;
+
+class Echipa{
+private:
+    std::vector<std :: string>ListaEchipe;
+    int len;
+    char s[NMAX];
+public:
+    Echipa(int n_) : len{n_} {
+        ///std::cout << "echipa";
+    }
+    void Echipe()
+    {
+        std::fstream f;
+        f.open("echipe.txt", std::ios::in);
+        for(int i = 0; i < len; i++)
+        {
+            f.getline(s, len);
+            ListaEchipe.push_back(s);
+        }
+        f.close();
+    }
+    std::string RandomTeam(int index)
+    {
+        int x = rand() % len;
+        if(index == 0 && x % 2 == 1)
+
+            x = x-1;
+        else if(index == 1 && x % 2 == 0)
+            x = x+1;
+        return ListaEchipe[x];
+    }
+};
 class Meci {
 private:
     std::string echipa1;
@@ -152,31 +185,8 @@ public:
 
     };
 };
-std::vector<std :: string>ListaEchipe;
-void Echipe()
-{
-    std::fstream f;
-    f.open("echipe.txt", std::ios::in);
-    for(int i = 0; i < 100; i++)
-    {
-        char s[100];
-        f.getline(s, 100);
-        ListaEchipe.push_back(s);
-    }
-    f.close();
-}
 
-std::string RandomTeam(int index)
-{
-    int n = ListaEchipe.size();
-    int x = rand() % n;
-    if(index == 0 && x % 2 == 1)
 
-        x = x-1;
-    else if(index == 1 && x % 2 == 0)
-        x = x+1;
-    return ListaEchipe[x];
-}
 int RandomScore()
 {
     int x = rand() % 5;
@@ -226,8 +236,10 @@ void AlcatuireBilet()
     std::vector<Meci> Meciuri;
     for(int i = 1;i <= 10;i++)
     {
-        std::string echipa1 = RandomTeam(0);
-        std::string echipa2 = RandomTeam(1);
+        Echipa E(NMAX);
+        E.Echipe();
+        std::string echipa1 = E.RandomTeam(0);
+        std::string echipa2 = E.RandomTeam(1);
         int scor1 = RandomScore();
         int scor2 = RandomScore();
         Meci M{echipa1, echipa2, scor1, scor2};
@@ -309,7 +321,6 @@ int main() {
     srand(time(nullptr));
     ///B.afisare();
     ///std::cout << B.getcastig();
-    Echipe();
     std :: cout << "Bun venit!\n";
     bool ok = true;
     while(ok)
