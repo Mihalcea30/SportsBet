@@ -16,6 +16,8 @@ public:
      Echipa(int len_, char sir_[NMAX], std::vector<std::string>Lista_) : len{len_}, s{sir_[NMAX]}, ListaEchipe{std::move(Lista_)} {
           ///std::cout << "echipa";
      }
+     ///constructor de copiere
+
     void Echipe()
     {
         std::fstream f;
@@ -286,6 +288,7 @@ void AlcatuireBilet()
                 x = Stoi(y);
         }
         f[x] = 1;
+        x--;
         std::string bet;
         std::string echipa1 = Meciuri[x].getechip1();
         std::string echipa2 = Meciuri[x].getechip2();
