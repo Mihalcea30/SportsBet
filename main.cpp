@@ -9,13 +9,13 @@ const int NMAX = 100;
 
 class Echipa{
 private:
-    std::vector<std :: string>ListaEchipe;
     int len;
     char s[NMAX];
+    std::vector<std :: string>ListaEchipe;
 public:
-    Echipa(int n_) : len{n_} {
-        ///std::cout << "echipa";
-    }
+     Echipa(int len_, char sir_[NMAX], std::vector<std::string>Lista_) : len{len_}, s{sir_[NMAX]}, ListaEchipe{std::move(Lista_)} {
+          ///std::cout << "echipa";
+     }
     void Echipe()
     {
         std::fstream f;
@@ -236,7 +236,9 @@ void AlcatuireBilet()
     std::vector<Meci> Meciuri;
     for(int i = 1;i <= 10;i++)
     {
-        Echipa E(NMAX);
+        char s[NMAX];
+        std::vector<std::string> Teams;
+        Echipa E(NMAX,s, Teams);
         E.Echipe();
         std::string echipa1 = E.RandomTeam(0);
         std::string echipa2 = E.RandomTeam(1);
