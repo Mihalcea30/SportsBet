@@ -5,7 +5,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-const int NMAX = 105;
+const int NMAX = 100;
 
 class Echipa{
 private:
@@ -238,7 +238,7 @@ void AlcatuireBilet()
     std::vector<Meci> Meciuri;
     for(int i = 1;i <= 10;i++)
     {
-        char s[NMAX];
+        char s[] = "";
         std::vector<std::string> Teams;
         Echipa E(NMAX,s, Teams);
         E.Echipe();
