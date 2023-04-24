@@ -5,7 +5,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-const int NMAX = 100;
+const int NMAX = 105;
 
 class Echipa{
 private:
