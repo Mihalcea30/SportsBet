@@ -1,0 +1,100 @@
+Real Madrid
+Barcelona
+Manchester United
+Liverpool
+Bayern Munich
+Juventus
+Paris Saint-Germain
+Manchester City
+Chelsea
+Arsenal
+Atletico Madrid
+Borussia Dortmund
+Inter Milan
+AC Milan
+Tottenham Hotspur
+Ajax
+Benfica
+Porto
+AS Roma
+Napoli
+Lazio
+Fiorentina
+Celtic
+Rangers
+Olympiacos
+Panathinaikos
+Anderlecht
+Club Brugge
+FC Copenhagen
+PSV Eindhoven
+Ajax Amsterdam
+Feyenoord
+Galatasaray
+Fenerbahce
+Besiktas
+Shakhtar Donetsk
+Dynamo Kiev
+Zenit St. Petersburg
+Spartak Moscow
+CSKA Moscow
+Red Star Belgrade
+Partizan Belgrade
+Steaua Bucuresti
+Dinamo Zagreb
+Hajduk Split
+Rosenborg
+Molde
+Basel
+Young Boys
+Grasshoppers
+Standard Liege
+Club Brugge
+Genk
+Rapid Vienna
+Salzburg
+Austria Vienna
+Maccabi Haifa
+Hapoel Tel Aviv
+Dinamo Tbilisi
+Zorya Luhansk
+Dynamo Tashkent
+Al-Hilal
+Al-Ahli
+Al-Sadd
+Al-Ittihad
+Al-Nassr
+Al-Ain
+Al-Gharafa
+Seoul
+Ulsan Hyundai
+Suwon Samsung Bluewings
+Jeonbuk Hyundai Motors
+Pohang Steelers
+Shanghai SIPG
+Guangzhou Evergrande
+Beijing Guoan
+Kashima Antlers
+Urawa Reds
+Kawasaki Frontale
+Sanfrecce Hiroshima
+Vissel Kobe
+Jubilo Iwata
+Melbourne Victory
+Adelaide United
+Brisbane Roar
+Sydney FC
+Perth Glory
+Wellington Phoenix
+Auckland City
+LA Galaxy
+Seattle Sounders
+New York Red Bulls
+Toronto FC
+DC United
+Montreal Impact
+Club America
+Cruz Azul
+Monterrey
+Tigres UANL
+Chivas Guadalajara
