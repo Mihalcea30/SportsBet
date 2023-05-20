@@ -6,7 +6,7 @@ void Session ::MakeSession(){
     std::cout << "Bun venit!\n";
     bool ok = true;
     while (ok) {
-        MakeBilet S;
+        MakeBilet S({},0, {}, {}, "", 0, "");
         S.AlcatuireBilet();
         std::string x;
         std::cout << "Doriti sa pariati din nou?(Da sau Nu)?\n";
