@@ -24,8 +24,8 @@ float MakeBilet :: RandomCota()
 }
 bool MakeBilet :: checkNumber (std::string s)
 {
-    int n = s.length();
-    for (int i = 0; i < n; i++)
+    int len = s.length();
+    for (int i = 0; i < len; i++)
         if (isdigit(s[i]) == false)
             return false;
     return true;
