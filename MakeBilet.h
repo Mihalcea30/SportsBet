@@ -19,7 +19,8 @@ private:
     int n;
     std::string bet;
 public:
-    MakeBilet(std::vector<Pariu> P_, int Suma_, std::vector<Meci> Meciuri_, std::vector<std::string> Teams, std::string m_, int n_, std::string bet_);
+    MakeBilet(std::vector<Pariu> const &P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
+            ,std::string const &m_, int n_, std::string const &bet_);
     int RandomScore();
     float RandomCota();
     bool checkNumber (std::string s);
