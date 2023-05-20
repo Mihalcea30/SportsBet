@@ -1,6 +1,6 @@
 #include "Bilet.h"
 
-Bilet :: Bilet(std::vector<Pariu> const &P_, int nr_) : P{P_}, nr{nr_} {
+Bilet :: Bilet(std::vector<Pariu_Rezultat> P_, int nr_) : P{P_}, nr{nr_} {
 ///std::cout << "bilet";
 }
 Bilet :: Bilet(const Bilet &other) : P{other.P}, nr{other.nr}{

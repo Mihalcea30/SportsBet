@@ -7,8 +7,8 @@
 #include <string>
 #include <cstdlib>
 
-MakeBilet ::MakeBilet(std::vector<Pariu> const &P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
-,std::string const &m_, int n_, std::string const &bet_) : P{P_}, Suma{Suma_}, Meciuri{Meciuri_}, Teams{Teams_}, m{m_}, n{n_}, bet{bet_} {
+MakeBilet ::MakeBilet(std::vector<Pariu_Rezultat> P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
+, std::string const &m_, int n_, std::string const &bet_) : P{P_}, Suma{Suma_}, Meciuri{Meciuri_}, Teams{Teams_}, m{m_}, n{n_}, bet{bet_} {
     ///std::cout << "makebilet";
 }
 int MakeBilet :: RandomScore()
@@ -113,7 +113,7 @@ void MakeBilet :: AlcatuireBilet()
             std::cin >> bet;
         }
         Meci M{echipa1, echipa2, scor1, scor2};
-        Pariu P1{bet, M, cota1, cota2, cotaegal,Suma};
+        Pariu_Rezultat P1{bet, M, cota1, cota2, cotaegal, Suma};
         P.push_back(P1);
     }
     Bilet B{P, n};

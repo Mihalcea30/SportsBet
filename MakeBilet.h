@@ -4,14 +4,15 @@
 
 #include "Pariu.h"
 #include "Meci.h"
+#include "Pariu_Rezultat.h"
 #include <vector>
 #include <string>
 #include <iostream>
-
+#include "Pariu_Rezultat.h"
 class MakeBilet
 {
 private:
-    std::vector<Pariu> P;
+    std::vector<Pariu_Rezultat> P;
     int Suma;
     std::vector<Meci> Meciuri;
     std::vector<std::string> Teams;
@@ -19,11 +20,11 @@ private:
     int n;
     std::string bet;
 public:
-    MakeBilet(std::vector<Pariu> const &P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
-            ,std::string const &m_, int n_, std::string const &bet_);
-    int RandomScore();
-    float RandomCota();
-    bool checkNumber (std::string s);
+    MakeBilet(std::vector<Pariu_Rezultat> P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
+            , std::string const &m_, int n_, std::string const &bet_);
+    static int RandomScore();
+    static float RandomCota();
+    static bool checkNumber (std::string s);
     void AlcatuireBilet();
 
 };

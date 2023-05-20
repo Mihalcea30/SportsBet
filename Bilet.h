@@ -1,15 +1,15 @@
 
 #ifndef OOP_BILET_H
 #define OOP_BILET_H
-#include "Pariu.h"
+#include "Pariu_Rezultat.h"
 #include <vector>
 
 class Bilet {
 private:
-    std::vector<Pariu> P;
+    std::vector<Pariu_Rezultat> P;
     int nr;
 public:
-    Bilet(std::vector<Pariu> const &P_, int nr_);
+    Bilet(std::vector<Pariu_Rezultat> P_, int nr_);
     Bilet(const Bilet &other);
     ~Bilet();
     friend std::ostream &operator<<(std::ostream &os, const Bilet &b);
