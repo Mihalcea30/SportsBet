@@ -146,4 +146,6 @@ void MakeBilet :: AlcatuireBilet()
     Bilet B{P, n};
     B.afisare();
     std::cout << "Castigul este: " << B.getcastig() << "lei\n";
+    for(auto x : P)
+        delete x;
 }
