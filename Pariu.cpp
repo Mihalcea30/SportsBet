@@ -9,9 +9,9 @@ std::ostream& operator<<(std::ostream& os, const Pariu& p) {
 }
 Pariu ::  ~Pariu() = default;
 
-Pariu * clone(){
+/*Pariu * clone(){
 
-}
+}*/
 
 void Pariu::AfisPariu(){
     ///afisare pariu
