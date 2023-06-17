@@ -1,7 +1,7 @@
 #include "Pariu.h"
 #include "Meci.h"
 
-Pariu ::Pariu(int scor1_, int scor2_, int suma_, std :: string bet_, Meci M_) :
+Pariu ::Pariu(int scor1_, int scor2_, int suma_, std :: string const  &bet_, Meci const &M_) :
                                     scor1(scor1_), scor2(scor2_), suma(suma_), bet(bet_), M(M_) {};
 std::ostream& operator<<(std::ostream& os, const Pariu& p) {
     os << "Pariu in valoare de " <<  p.suma << " pe meciul dintre " << p.M.getechip1() << " si " << p.M.getechip2() << "\n";
@@ -16,9 +16,7 @@ Pariu * clone(){
 void Pariu::AfisPariu(){
     ///afisare pariu
 };
-float Pariu::CastigPariu() {
-    ///castig pariu
-}
+float Pariu::CastigPariu(){return 0;};
 
 /*td::string Pariu :: getbet() const { return bet; }
 Meci Pariu :: getM() const { return M; }

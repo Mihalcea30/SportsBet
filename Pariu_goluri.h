@@ -12,7 +12,7 @@ private:
     float cotaSub4, cotaPeste4, cotaPrimaSub2, cotaPrimaPeste2;
 public:
 
-    Pariu_Goluri(int scor1_, int scor2_, int suma_, std :: string bet_, Meci M_,
+    Pariu_Goluri(int scor1_, int scor2_, int suma_, std :: string const &bet_, Meci const &M_,
                  float cotaSub4_, float cotaPeste4_, float cotaPrimaSub2_, float cotaPrimaPeste2_);
     ///void getCastig() const override;
     std::string getbet() const;

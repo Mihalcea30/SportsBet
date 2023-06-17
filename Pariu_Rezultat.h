@@ -11,7 +11,7 @@ private:
     float cota1, cota2, cotaegal;
 public:
 
-    Pariu_Rezultat(int scor1_, int scor2_, int suma_, std :: string bet_, Meci M_, float cota1_, float cota2_, float cotaegal_);
+    Pariu_Rezultat(int scor1_, int scor2_, int suma_, std :: string const &bet_, Meci const&M_, float cota1_, float cota2_, float cotaegal_);
     ///void getCastig() const override;
     std::string getbet() const;
     Meci getM() const;

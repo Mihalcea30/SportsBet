@@ -1,7 +1,7 @@
 #include "Pariu_Rezultat.h"
 #include "Pariu.h"
 
-Pariu_Rezultat ::Pariu_Rezultat(int scor1_, int scor2_, int suma_, std :: string bet_, Meci M_, float cota1_, float cota2_, float cotaegal_) :
+Pariu_Rezultat ::Pariu_Rezultat(int scor1_, int scor2_, int suma_, std :: string const &bet_, Meci const &M_, float cota1_, float cota2_, float cotaegal_) :
         Pariu(scor1_, scor2_, suma_, bet_, M_),  cota1{cota1_}, cota2{cota2_}, cotaegal{cotaegal_} {
     //std::cout << "Constructor";
 };

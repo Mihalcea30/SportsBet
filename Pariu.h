@@ -10,7 +10,7 @@ protected:
     std :: string bet;
     Meci M;
 public:
-    Pariu(int scor1_, int scor2_, int suma_, std :: string bet_, Meci M_);
+    Pariu(int scor1_, int scor2_, int suma_, std :: string const &bet_, Meci const &M_);
     friend std::ostream& operator<<(std::ostream& os, const Pariu& p);
     virtual ~Pariu();
     ///virtual void getCastig() const = 0;
