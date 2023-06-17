@@ -3,12 +3,15 @@
 #include "Meci.h"
 #include "Echipa.h"
 #include "Bilet.h"
+#include "Pariu_Rezultat.h"
+#include "Pariu_goluri.h"
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <utility>
 
-MakeBilet ::MakeBilet(std::vector<Pariu_Rezultat> P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
-, std::string const &m_, int n_, std::string const &bet_) : P{P_}, Suma{Suma_}, Meciuri{Meciuri_}, Teams{Teams_}, m{m_}, n{n_}, bet{bet_} {
+MakeBilet ::MakeBilet(std::vector<Pariu*> P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
+, std::string const &m_, int n_, std::string const &bet_) : P{std::move(P_)}, Suma{Suma_}, Meciuri{Meciuri_}, Teams{Teams_}, m{m_}, n{n_}, bet{bet_} {
     ///std::cout << "makebilet";
 }
 int MakeBilet :: RandomScore()
@@ -99,24 +102,48 @@ void MakeBilet :: AlcatuireBilet()
         std::string echipa2 = Meciuri[x].getechip2();
         int scor1 = Meciuri[x].getscor1();
         int scor2 = Meciuri[x].getscor2();
-
-        float cota1 = RandomCota();
-        float cota2 = RandomCota() + cota1;
-        float cotaegal = cota1 + cota2 + RandomCota();
-        std::cout << "Cotele pentru meciul " << echipa1 << " - " << echipa2 << " sunt: " << "\n";
-        std::cout << "1: " << cota1 << " " << "2: " << cota2 << " " << "x: " << cotaegal << "\n";
-        std::cout << "Introduceti rezultatul preconizat(1 = Prima echipa castiga, 2 = A doua echipa castiga, x = Egalitate):";
-        std::cin >> bet;
-        while(bet != "1" && bet != "2" && bet != "x")
-        {
-            std::cout << "Pariul trebuie sa fie 1, 2 sau x:";
-            std::cin >> bet;
-        }
+        std :: cout << "Alege tipul de pariu pentru acest meci(RezultatFinal, Goluri, Special):";
+        std::string tipPariu;
+        std :: cin >> tipPariu;
         Meci M{echipa1, echipa2, scor1, scor2};
-        Pariu_Rezultat P1{bet, M, cota1, cota2, cotaegal, Suma};
-        P.push_back(P1);
+        if(tipPariu == "RezultatFinal"){
+            float cota1 = RandomCota();
+            float cota2 = RandomCota() + cota1;
+            float cotaegal = cota1 + cota2 + RandomCota();
+            std::cout << "Cotele pentru meciul " << echipa1 << " - " << echipa2 << " sunt: " << "\n";
+            std::cout << "1: " << cota1 << " " << "2: " << cota2 << " " << "x: " << cotaegal << "\n";
+            std::cout << "Introduceti rezultatul preconizat(1 = Prima echipa castiga, 2 = A doua echipa castiga, x = Egalitate):";
+            std::cin >> bet;
+            while(bet != "1" && bet != "2" && bet != "x")
+            {
+                std::cout << "Pariul trebuie sa fie 1, 2 sau x:";
+                std::cin >> bet;
+            }
+            Pariu *P1 = new Pariu_Rezultat{scor1, scor2, Suma, bet, M, cota1, cota2, cotaegal};
+            P.push_back(P1);
+        }
+        else if(tipPariu == "Goluri"){
+            float cotaSub4 = RandomCota();
+            float cotaPeste4 = RandomCota() + cotaSub4;
+            float cotaSub2 = RandomCota();
+            float cotaPeste2 = RandomCota() + cotaSub2;
+            std::cout << "Cotele pentru meciul " << echipa1 << " - " << echipa2 << " sunt: " << "\n";
+            std::cout << "TMin4: " << cotaPeste4 << " " << "TMax4: " << cotaSub4 << " "
+            << "PMin2: " << cotaPeste2 << " " << "PMax2 " <<  cotaSub2 << "\n";
+            std::cout << "Introduceti rezultatul preconizat: \nTMin4 = se marcheaza cel putin 4 goluri in total\n"
+                         << "TMax4 = se marcheaza cel mult 4 goluri in total\n"
+                         << "PMin2 = Prima echipa marcheaza cel putin 2 goluri\n"
+                         << "PMax2 = Prima echipa marcheaza cel mult 2 goluri\n";
+            std::cin >> bet;
+            while(bet != "TMin4" && bet != "TMax4" && bet != "PMax2" && bet != "PMin2")
+            {
+                std::cin >> bet;
+            }
+            Pariu *P1 = new Pariu_Goluri{scor1, scor2, Suma, bet, M, cotaSub4, cotaPeste4, cotaSub2, cotaPeste2};
+            P.push_back(P1);
+        }
     }
     Bilet B{P, n};
     B.afisare();
-    std::cout << "Castigul este: " << B.getcastig() << "\n";
+    std::cout << "Castigul este: " << B.getcastig() << "lei\n";
 }

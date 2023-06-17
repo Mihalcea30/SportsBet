@@ -12,7 +12,7 @@
 class MakeBilet
 {
 private:
-    std::vector<Pariu_Rezultat> P;
+    std::vector<Pariu*> P;
     int Suma;
     std::vector<Meci> Meciuri;
     std::vector<std::string> Teams;
@@ -20,7 +20,7 @@ private:
     int n;
     std::string bet;
 public:
-    MakeBilet(std::vector<Pariu_Rezultat> P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
+    MakeBilet(std::vector<Pariu*> P_, int Suma_, std::vector<Meci> const &Meciuri_, std::vector<std::string> const &Teams_
             , std::string const &m_, int n_, std::string const &bet_);
     static int RandomScore();
     static float RandomCota();

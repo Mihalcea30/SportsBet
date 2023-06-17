@@ -5,21 +5,22 @@
 
 class Pariu{
 protected:
-    explicit Pariu();
-
-    std::string bet;
-    Meci M;
+    int scor1, scor2;
     int suma;
+    std :: string bet;
+    Meci M;
 public:
-    virtual  Pariu* clone() const = 0;
+    Pariu(int scor1_, int scor2_, int suma_, std :: string bet_, Meci M_);
     friend std::ostream& operator<<(std::ostream& os, const Pariu& p);
     virtual ~Pariu();
-    virtual void getCastig() const = 0;
+    ///virtual void getCastig() const = 0;
     /*Meci getM() const;
     float getcastig1() const;
     float getcastig2() const;
     float getcastigegal() const;
     bool castigat() const;*/
+    virtual void AfisPariu();
+    virtual float CastigPariu();
 
 };
 #endif //OOP_PARIU_H

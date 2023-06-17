@@ -1,6 +1,8 @@
 #include "Bilet.h"
 
-Bilet :: Bilet(std::vector<Pariu_Rezultat> P_, int nr_) : P{P_}, nr{nr_} {
+#include <utility>
+
+Bilet :: Bilet(std::vector<Pariu*> P_, int nr_) : P{std::move(P_)}, nr{nr_} {
 ///std::cout << "bilet";
 }
 Bilet :: Bilet(const Bilet &other) : P{other.P}, nr{other.nr}{
@@ -20,15 +22,9 @@ float Bilet :: getcastig() const {
     bool ok = true;
     float castig = 0;
     for (int i = 0; i < nr; i++) {
-        if (P[i].castigat())
-        {
-            if(P[i].getbet() == "1")
-                castig += P[i].getcastig1();
-            else if(P[i].getbet() == "2")
-                castig += P[i].getcastig2();
-            else
-                castig += P[i].getcastigegal();
-        }
+       ///auto *Pp = dynamic_cast<Pariu_Rezultat *>(P[i]);
+        if (P[i]->CastigPariu() != 0)
+            castig += P[i]->CastigPariu();
         else
             ok = false;
     }
@@ -37,9 +33,12 @@ float Bilet :: getcastig() const {
     return 0;
 }
 void Bilet :: afisare() const {
-    for (int i = 0; i < nr; i++)
-        std::cout << i + 1 << "." << "Meciul dintre " << P[i].getM().getechip1() << " si "
-                  << P[i].getM().getechip2() << " s-a terminat cu scorul " << P[i].getM().getscor1() << "-" << P[i].getM().getscor2() << "\n" << "Pariul a fost pe " << P[i].getbet() << "\n";
+    for (int i = 0; i < nr; i++){
+        ///auto *Pp = dynamic_cast<Pariu_Rezultat *>(P[i]);
+        std::cout << i + 1 << ".";
+        P[i]->AfisPariu();
+    }
+
     if(getcastig() != 0)
         std::cout << "Corect!" << "\n";
     else

@@ -6,10 +6,10 @@
 
 class Bilet {
 private:
-    std::vector<Pariu_Rezultat> P;
+    std::vector<Pariu*> P;
     int nr;
 public:
-    Bilet(std::vector<Pariu_Rezultat> P_, int nr_);
+    Bilet(std::vector<Pariu*> P_, int nr_);
     Bilet(const Bilet &other);
     ~Bilet();
     friend std::ostream &operator<<(std::ostream &os, const Bilet &b);
