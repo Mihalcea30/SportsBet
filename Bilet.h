@@ -9,7 +9,7 @@ private:
     std::vector<Pariu*> P;
     int nr;
 public:
-    Bilet(std::vector<Pariu*> P_, int nr_);
+    Bilet(std::vector<Pariu*> const &P_, int nr_);
     Bilet(const Bilet &other);
     ~Bilet();
     Bilet &operator=(const Bilet &other);
