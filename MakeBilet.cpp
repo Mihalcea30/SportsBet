@@ -58,7 +58,6 @@ void MakeBilet :: AlcatuireBilet()
         catch (std::runtime_error& err) {
             std::cout << err.what() << "\n";
         }
-        E.Echipe();
         std::string echipa1, echipa2;
         try {
             echipa1 = E.RandomTeam(0);
