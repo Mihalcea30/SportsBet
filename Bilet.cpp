@@ -2,12 +2,12 @@
 
 #include <utility>
 
-Bilet :: Bilet(std::vector<Pariu*> P_, int nr_) : P{std::move(P_)}, nr{nr_} {
+Bilet :: Bilet(std::vector<Pariu*> P_, int nr_) : P{P_}, nr{nr_} {
 ///std::cout << "bilet";
 }
-Bilet :: Bilet(const Bilet &other1, Bilet &other2) {
-    other2.P = other1.P;
-    other2.nr = other1.nr;
+Bilet :: Bilet(const Bilet &other) {
+    P = other.P;
+    nr = other.nr;
 }
 Bilet :: ~Bilet() {
     ///std::cout << "destructor";
