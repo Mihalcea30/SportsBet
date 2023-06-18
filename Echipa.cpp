@@ -10,8 +10,9 @@ Echipa::Echipa(int len_, char sir_[NMAX], std::vector<std::string>Lista_) : len{
 
 void Echipa :: Echipe()
 {
-    std::fstream f;
-    f.open("echipe.txt", std::ios::in);
+    ///std::fstream f
+    ///f.open("echipe.txt", std::ios::in);
+    std :: ifstream f("echipe.txt");
     for(int i = 0; i < len; i++)
     {
         f.getline(s, len);
