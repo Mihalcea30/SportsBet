@@ -10,7 +10,7 @@ Echipa::Echipa(int len_, char sir_[NMAX], std::vector<std::string>Lista_) : len{
 
 void Echipa :: Echipe()
 {
-    std::fstream f = nullptr;
+    std::fstream f;
     f.open("echipe.txt", std::ios::in);
     for(int i = 0; i < len; i++)
     {
