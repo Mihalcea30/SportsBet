@@ -12,6 +12,8 @@ public:
     Bilet(std::vector<Pariu*> P_, int nr_);
     Bilet(const Bilet &other);
     ~Bilet();
+    Bilet &operator=(const Bilet &other);
+
     friend std::ostream &operator<<(std::ostream &os, const Bilet &b);
     float getcastig() const;
     void afisare() const;

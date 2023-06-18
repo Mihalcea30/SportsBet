@@ -5,11 +5,19 @@
 Bilet :: Bilet(std::vector<Pariu*> P_, int nr_) : P{std::move(P_)}, nr{nr_} {
 ///std::cout << "bilet";
 }
-Bilet :: Bilet(const Bilet &other) : P{other.P}, nr{other.nr}{
-    ///std::cout << "Constr de copiere\n";
+Bilet :: Bilet(const Bilet &other) {
+    P = other.P;
+    nr = other.nr;
 }
 Bilet :: ~Bilet() {
     ///std::cout << "destructor";
+}
+Bilet &Bilet :: operator=(const Bilet &other) {
+    if (this != &other) {
+        P = other.P;
+        nr = other.nr;
+    }
+    return *this;
 }
 std::ostream &operator<<(std::ostream &os, const Bilet &b) {
     os << "Biletul are " << b.nr << " pariuri\n";
