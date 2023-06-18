@@ -16,7 +16,7 @@ void Echipa :: Echipe()
     for(int i = 0; i < len; i++)
     {
         f.getline(s, len);
-        ListaEchipe.push_back(s);
+        ListaEchipe.emplace_back(s);
     }
     f.close();
 }
