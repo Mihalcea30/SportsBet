@@ -15,6 +15,6 @@ public:
 };
 class wrongteam_error : public app_error{
 public:
-    explicit wrongteam_error(int length);
+    explicit wrongteam_error(std::string const &s);
 };
 #endif //OOP_EXCEPTII_H

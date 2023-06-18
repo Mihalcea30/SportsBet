@@ -34,6 +34,6 @@ std::string Echipa :: RandomTeam(int index)
     else if(index == 1 && x % 2 == 0)
         x = x+1;
     if(x >= len)
-        throw wrongteam_error(len);
+        throw wrongteam_error("Nu exista echipa cu acest indice in fisierul echipe.txt");
     return ListaEchipe[x];
 }
