@@ -59,8 +59,14 @@ void MakeBilet :: AlcatuireBilet()
             std::cout << err.what() << "\n";
         }
         E.Echipe();
-        std::string echipa1 = E.RandomTeam(0);
-        std::string echipa2 = E.RandomTeam(1);
+        std::string echipa1, echipa2;
+        try {
+            echipa1 = E.RandomTeam(0);
+            echipa2 = E.RandomTeam(1);
+        }
+        catch (std::runtime_error& err) {
+            std::cout << err.what() << "\n";
+        }
         int scor1 = RandomScore();
         int scor2 = RandomScore();
         Meci M{echipa1, echipa2, scor1, scor2};
