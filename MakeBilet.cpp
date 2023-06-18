@@ -52,6 +52,12 @@ void MakeBilet :: AlcatuireBilet()
     {
         char s[] = "";
         Echipa E(NMAX,s, Teams);
+        try {
+            E.Echipe();
+        }
+        catch (std::runtime_error& err) {
+            std::cout << err.what() << "\n";
+        }
         E.Echipe();
         std::string echipa1 = E.RandomTeam(0);
         std::string echipa2 = E.RandomTeam(1);
