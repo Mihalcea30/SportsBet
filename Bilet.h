@@ -10,7 +10,7 @@ private:
     int nr;
 public:
     Bilet(std::vector<Pariu*> P_, int nr_);
-    Bilet(const Bilet &other);
+    Bilet(const Bilet &other1, Bilet &other2);
     ~Bilet();
     Bilet &operator=(const Bilet &other);
 
