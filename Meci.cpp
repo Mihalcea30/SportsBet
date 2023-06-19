@@ -1,9 +1,9 @@
 #include "Meci.h"
 
-Meci :: Meci(std::string echipa1_, std::string echipa2_, int scor1_, int scor2_) :
+/*Meci :: Meci(std::string echipa1_, std::string echipa2_, int scor1_, int scor2_) :
     echipa1{std::move(echipa1_)}, echipa2{std::move(echipa2_)}, scor1{scor1_}, scor2{scor2_} {
 ///std::cout << "meci";
-}
+}*/
 Meci :: Meci(const Meci &other) : echipa1{other.echipa1}, echipa2{other.echipa2}, scor1{other.scor1}, scor2{other.scor2}{
     ///std::cout << "Constr de copiere\n";
 }

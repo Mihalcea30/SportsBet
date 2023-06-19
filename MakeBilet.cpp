@@ -50,8 +50,7 @@ void MakeBilet :: AlcatuireBilet()
     std::cout << "Meciurile de azi:\n";
     for(int i = 1;i <= 10;i++)
     {
-        char s[] = "";
-        Echipa E(NMAX,s, Teams);
+        Echipa E = Echipa_factory :: LaLiga();
         try {
             E.Echipe();
         }
@@ -68,7 +67,9 @@ void MakeBilet :: AlcatuireBilet()
         }
         int scor1 = RandomScore();
         int scor2 = RandomScore();
-        Meci M{echipa1, echipa2, scor1, scor2};
+        ///Meci M;
+        meci_builder MB;
+        Meci M = MB.echipa1(echipa1).echipa2(echipa2).scor1(scor1).scor2(scor2).build();
         Meciuri.push_back(M);
         std::cout << i << "." << echipa1 << "-" << echipa2 <<"\n";
     }
@@ -116,7 +117,9 @@ void MakeBilet :: AlcatuireBilet()
         std :: cout << "Alege tipul de pariu pentru acest meci(RezultatFinal, Goluri, Special):";
         std::string tipPariu;
         std :: cin >> tipPariu;
-        Meci M{echipa1, echipa2, scor1, scor2};
+        meci_builder MB;
+        Meci M = MB.echipa1(echipa1).echipa2(echipa2).scor1(scor1).scor2(scor2).build();
+        Meciuri.push_back(M);
         if(tipPariu == "RezultatFinal"){
             float cota1 = RandomCota();
             float cota2 = RandomCota() + cota1;

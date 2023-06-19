@@ -2,7 +2,7 @@
 #include "Session.h"
 
 int main() {
-    Session S;
+    auto& S = Session::get_session();
     S.MakeSession();
     return 0;
 }
