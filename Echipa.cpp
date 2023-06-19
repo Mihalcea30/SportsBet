@@ -1,6 +1,5 @@
 #include "Echipa.h"
 #include "Exceptii.h"
-#include <iostream>
 #include  <vector>
 #include <fstream>
 #include <cstring>
