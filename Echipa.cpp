@@ -4,7 +4,7 @@
 #include <fstream>
 #include <cstring>
 
-Echipa::Echipa(int len_, char sir_[NMAX], std::vector<std::string>Lista_) : len{len_}, s{sir_[NMAX]}, ListaEchipe{std::move(Lista_)} {
+Echipa::Echipa(int len_, std::vector<std::string>Lista_) : len{len_},  ListaEchipe{std::move(Lista_)} {
     ///std::cout << "echipa";
 }
 ///constructor de copiere
@@ -16,6 +16,7 @@ void Echipa :: Echipe()
     std :: ifstream f("echipe.txt");
     for(int i = 0; i < len; i++)
     {
+        char s[NMAX];
         f.getline(s, len);
         if(strcmp(s, "") != 0)
             ListaEchipe.emplace_back(s);
