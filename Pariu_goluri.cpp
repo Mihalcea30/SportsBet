@@ -2,10 +2,10 @@
 // Created by Home on 6/17/2023.
 //
 #include "Pariu_goluri.h"
-#include "Pariu.h"
-
+///#include "Pariu.h"
+///template <typename nr>
 Pariu_Goluri ::Pariu_Goluri(int scor1_, int scor2_, int suma_, std :: string const &bet_, Meci const &M_,
-                            float cotaSub4_, float cotaPeste4_, float cotaPrimaSub2_, float cotaPrimaPeste2_) :
+                            float cotaSub4_, float cotaPeste4_, float cotaPrimaSub2_,  float   cotaPrimaPeste2_) :
                             Pariu(scor1_, scor2_, suma_, bet_, M_), cotaSub4(cotaSub4_), cotaPeste4(cotaPeste4_),
                             cotaPrimaSub2(cotaPrimaSub2_), cotaPrimaPeste2(cotaPrimaPeste2_) {
     //std::cout << "Constructor";

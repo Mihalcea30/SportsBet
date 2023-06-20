@@ -13,7 +13,7 @@ Pariu ::  ~Pariu() = default;
 
 }*/
 
-void Pariu::AfisPariu(){
+/*void Pariu::AfisPariu(){
     ///afisare pariu
 };
 float Pariu::CastigPariu(){return 0;};

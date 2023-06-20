@@ -3,6 +3,7 @@
 #define OOP_PARIU_H
 #include "Meci.h"
 
+
 class Pariu{
 protected:
     int scor1, scor2;
@@ -19,8 +20,8 @@ public:
     float getcastig2() const;
     float getcastigegal() const;
     bool castigat() const;*/
-    virtual void AfisPariu();
-    virtual float CastigPariu();
+    virtual void AfisPariu()  = 0;
+    virtual float CastigPariu()  = 0;
 
 };
 #endif //OOP_PARIU_H

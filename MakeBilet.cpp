@@ -5,6 +5,7 @@
 #include "Bilet.h"
 #include "Pariu_Rezultat.h"
 #include "Pariu_goluri.h"
+#include "Pariu_special.h"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -155,6 +156,16 @@ void MakeBilet :: AlcatuireBilet()
             }
             Pariu *P1 = new Pariu_Goluri{scor1, scor2, Suma, bet, M, cotaSub4, cotaPeste4, cotaSub2, cotaPeste2};
             P.push_back(P1);
+        }
+        else if(tipPariu == "Special"){
+            float cotaexact = RandomCota();
+            float cotaambele = RandomCota();
+            std::cout << "Cotele pentru meciul " << echipa1 << " - " << echipa2 << " sunt: " << "\n";
+            std::cout << "Ambele: " << cotaambele << "\n";
+            std::cout << "Introduceti rezultatul preconizat: \nAmbele=Ambele echipe inscriu\n"
+                      << "x-y = scorul exact\n";
+            std::cin >> bet;
+            PariuSpecial P1{cotaambele, cotaexact, scor1, scor2, Suma, bet, M};
         }
     }
     Bilet B{P, n};

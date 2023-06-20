@@ -6,7 +6,7 @@
 #define OOP_PARIU_GOLURI_H
 
 #include "Pariu.h"
-
+//template <typename nr>
 class Pariu_Goluri : public Pariu{
 private:
     float cotaSub4, cotaPeste4, cotaPrimaSub2, cotaPrimaPeste2;
@@ -25,4 +25,5 @@ public:
     void AfisPariu() override;
     float CastigPariu() override;
 };
+
 #endif //OOP_PARIU_GOLURI_H
