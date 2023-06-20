@@ -8,21 +8,3 @@ std::ostream& operator<<(std::ostream& os, const Pariu& p) {
     return os;
 }
 Pariu ::  ~Pariu() = default;
-
-/*Pariu * clone(){
-
-}*/
-
-/*void Pariu::AfisPariu(){
-    ///afisare pariu
-};
-float Pariu::CastigPariu(){return 0;};
-
-/*td::string Pariu :: getbet() const { return bet; }
-Meci Pariu :: getM() const { return M; }
-float Pariu :: getcastig1() const { return suma * cota1; }
-float Pariu :: getcastig2() const { return suma * cota2; }
-float Pariu :: getcastigegal() const { return suma * cotaegal; }
-bool Pariu :: castigat() const {
-    return bet == M.Winner();
-}*/
